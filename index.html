@@ -80,8 +80,9 @@
     Telegram.WebApp.ready(); // 🔗 Kích hoạt giao tiếp với Telegram
 
     function buy(giftId) {
-      alert("✅ Sent to bot: " + giftId); // ✅ TEST hiển thị trên Telegram Desktop
-      Telegram.WebApp.sendData(giftId);  // Gửi về bot
+      console.log("Sending gift ID to bot:", giftId);  // In log để kiểm tra gửi đúng giftId
+      alert("✅ Sent to bot: " + giftId);              // Thông báo cho người dùng
+      Telegram.WebApp.sendData(giftId);               // Gửi về bot
     }
   </script>
 </body>
