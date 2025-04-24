@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gift Shop</title>
   <style>
     body {
@@ -60,25 +60,44 @@
 </head>
 <body>
   <h1>🎁 Welcome to Gift Shop</h1>
-
-  <script>
-    Telegram.WebApp.ready(); // 🔗 Initialize communication with Telegram
-
-    // Get gift_id from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const giftId = urlParams.get('gift_id');
-
-    if (giftId) {
-      // If gift_id is present, display gift details (can be expanded)
-      alert("✅ Gift ID: " + giftId);
-    }
-
-    function buy(giftId) {
-      alert("✅ Sent to bot: " + giftId);  // Alert when Buy Now is clicked
-      Telegram.WebApp.sendData(giftId);   // Send data (gift_id) to bot
-    }
-  </script>
-
+  <div class="grid" id="gift-container"></div>
   <footer>@Med108Bot</footer>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    Telegram.WebApp.ready(); // Ready for interaction
+
+    // Sample gift data (replace with data from bot)
+    const gifts = [
+      { id: "GIFT001", name: "Phone Credit $50", price: 500, sold: false },
+      { id: "GIFT002", name: "Shopee Voucher $100", price: 700, sold: false }
+    ];
+
+    // Function to render gift items
+    function renderGifts() {
+      const giftContainer = document.getElementById('gift-container');
+      gifts.forEach(gift => {
+        if (!gift.sold) {
+          const giftCard = document.createElement('div');
+          giftCard.className = 'card';
+          giftCard.innerHTML = `
+            <h3>${gift.name}</h3>
+            <div class="price">${gift.price} ⭐</div>
+            <button onclick="buy('${gift.id}')">Buy Now</button>
+          `;
+          giftContainer.appendChild(giftCard);
+        }
+      });
+    }
+
+    // Buy function to send data to bot
+    function buy(giftId) {
+      alert("✅ Sent to bot: " + giftId); // Show alert for testing
+      Telegram.WebApp.sendData(giftId); // Send gift ID to bot
+    }
+
+    // Render the gifts when the page loads
+    renderGifts();
+  </script>
 </body>
 </html>
