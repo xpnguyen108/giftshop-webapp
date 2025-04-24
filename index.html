@@ -8,50 +8,53 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f6f8;
+      background-color: #f5f7f9;
       padding: 20px;
       color: #333;
     }
     h1 {
       text-align: center;
-      color: #222;
+      margin-top: 0;
     }
     .grid {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
     }
     .card {
-      background: white;
-      border-radius: 8px;
-      padding: 16px;
-      width: 260px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .card h3 {
-      margin-top: 0;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
     }
     .price {
       font-size: 18px;
       font-weight: bold;
       color: #007bff;
+      margin: 10px 0;
     }
     button {
       background-color: #28a745;
-      border: none;
-      padding: 10px;
-      border-radius: 6px;
       color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
       cursor: pointer;
-      font-size: 15px;
-      margin-top: 10px;
     }
     button:hover {
       background-color: #218838;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #888;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -70,13 +73,15 @@
     </div>
   </div>
 
+  <footer>@Med108Bot</footer>
+
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script>
-    Telegram.WebApp.ready(); // Ensure Telegram API is ready
+    Telegram.WebApp.ready(); // 🔗 Kích hoạt giao tiếp với Telegram
 
     function buy(giftId) {
-      console.log("✅ User selected:", giftId);
-      Telegram.WebApp.sendData(giftId); // Send gift ID to bot
+      alert("✅ Sent to bot: " + giftId); // ✅ TEST hiển thị trên Telegram Desktop
+      Telegram.WebApp.sendData(giftId);  // Gửi về bot
     }
   </script>
 </body>
