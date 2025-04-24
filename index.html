@@ -69,8 +69,8 @@
 
     // Sample gift data (replace with data from bot)
     const gifts = [
-      { id: "GIFT001", name: "Phone Credit $50", price: 500, sold: false },
-      { id: "GIFT002", name: "Shopee Voucher $100", price: 700, sold: false }
+      { id: "GIFT001", name: "Phone Credit 50K", price: 500, sold: false },
+      { id: "GIFT002", name: "Shopee Discount 100K", price: 700, sold: false }
     ];
 
     // Function to render gift items
@@ -92,12 +92,5 @@
 
     // Buy function to send data to bot
     function buy(giftId) {
-      alert("✅ Sent to bot: " + giftId); // Show alert for testing
-      Telegram.WebApp.sendData(giftId); // Send gift ID to bot
-    }
-
-    // Render the gifts when the page loads
-    renderGifts();
-  </script>
-</body>
-</html>
+      alert("✅ Sent to bot: " + giftId);  // Test alert
+      Telegram.WebApp
