@@ -60,30 +60,25 @@
 </head>
 <body>
   <h1>🎁 Welcome to Gift Shop</h1>
-  <div class="grid">
-    <div class="card">
-      <h3>Phone Credit $50</h3>
-      <div class="price">500 ⭐</div>
-      <button onclick="buy('GIFT001')">Buy Now</button>
-    </div>
-    <div class="card">
-      <h3>Shopee Voucher $100</h3>
-      <div class="price">700 ⭐</div>
-      <button onclick="buy('GIFT002')">Buy Now</button>
-    </div>
-  </div>
 
-  <footer>@Med108Bot</footer>
-
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script>
-    Telegram.WebApp.ready(); // 🔗 Kích hoạt giao tiếp với Telegram
+    Telegram.WebApp.ready(); // 🔗 Initialize communication with Telegram
+
+    // Get gift_id from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const giftId = urlParams.get('gift_id');
+
+    if (giftId) {
+      // If gift_id is present, display gift details (can be expanded)
+      alert("✅ Gift ID: " + giftId);
+    }
 
     function buy(giftId) {
-      console.log("Sending gift ID to bot:", giftId);  // In log để kiểm tra gửi đúng giftId
-      alert("✅ Sent to bot: " + giftId);              // Thông báo cho người dùng
-      Telegram.WebApp.sendData(giftId);               // Gửi về bot
+      alert("✅ Sent to bot: " + giftId);  // Alert when Buy Now is clicked
+      Telegram.WebApp.sendData(giftId);   // Send data (gift_id) to bot
     }
   </script>
+
+  <footer>@Med108Bot</footer>
 </body>
 </html>
