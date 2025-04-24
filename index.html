@@ -72,9 +72,11 @@
 
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script>
-    Telegram.WebApp.ready();
+    Telegram.WebApp.ready(); // Ensure Telegram API is ready
+
     function buy(giftId) {
-      Telegram.WebApp.sendData(giftId);
+      console.log("✅ User selected:", giftId);
+      Telegram.WebApp.sendData(giftId); // Send gift ID to bot
     }
   </script>
 </body>
